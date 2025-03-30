@@ -12,3 +12,30 @@ body {
   background: rgb(var(--background-rgb));
   min-height: 100vh;
 } 
+
+.cell {
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.table-header {
+  background-color: #c5d5d8;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.table-container {
+  padding: 0px;
+  text-align: left;
+}
+
