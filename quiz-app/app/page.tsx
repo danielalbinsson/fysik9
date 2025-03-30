@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { tests } from './data/quizData';
 import QuizSection from './components/QuizSection';
+import Link from 'next/link';
+import { BookOpen, Zap } from 'lucide-react';
 
 export default function Home() {
   const [selectedTestId, setSelectedTestId] = useState<number | null>(null);
@@ -54,16 +56,32 @@ export default function Home() {
         <>
         <div className="mb-6">
           <label className="block mb-2 font-medium">Välj testprov:</label>
-          <div className="flex flex-wrap gap-2">
-            {tests.map(test => (
-              <button
-                key={test.id}
-                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                onClick={() => handleTestSelect(test.id)}
-              >
-                {test.title}
-              </button>
-            ))}
+          <div className="flex flex-wrap gap-2 justify-between items-center">
+            <div className="flex flex-wrap gap-2">
+
+              {tests.map(test => (
+
+              
+                <button
+                  key={test.id}
+                  className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                  onClick={() => handleTestSelect(test.id)}
+                >
+                  <div className='flex items-center gap-2'>
+                  <BookOpen className="w-4 h-4" />
+                  {test.title}
+                  </div>
+                </button>
+               
+              ))}
+              </div>
+            
+            <Link href="/flashcards" className="px-4 py-2 bg-fuchsia-900 text-white rounded-md hover:bg-blue-600">
+              <div className='flex items-center gap-2'>
+              <Zap className="w-4 h-4" />
+              Flashcards
+              </div>
+            </Link>
           </div>
         </div>
         {/* Text overview of the areas here */}
